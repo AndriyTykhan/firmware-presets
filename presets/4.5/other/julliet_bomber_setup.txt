@@ -8,6 +8,35 @@
 #$ AUTHOR: Andrii Tykhan
 #$ WARNING: Make sure you picked the correct option, according to the amount of VTX power levels!. Make sure your Betaflight 4.4.* build includes SERVO (skip this warning for Betaflight 4.3.*)!
 
+#$ OPTION_GROUP BEGIN: VTX Power
+  set vtx_low_power_disarm = UNTIL_FIRST_ARM
+  #$ OPTION BEGIN (CHECKED): VTX 4 levels               
+    vtx 0 5 0 0 1 900 1200
+    vtx 1 5 0 0 2 1400 1600
+    vtx 2 5 0 0 4 1600 2100
+    vtx 3 1 0 0 4 900 900
+    vtx 4 0 0 0 0 900 900
+    vtx 5 0 0 0 0 900 900
+    vtx 6 0 0 0 0 900 900
+    vtx 7 0 0 0 0 900 900
+    vtx 8 0 0 0 0 900 900
+    vtx 9 0 0 0 0 900 900
+  #$ OPTION END
+
+  #$ OPTION BEGIN (UNCHECKED): VTX 5 levels
+    vtx 0 5 0 0 1 900 1200
+    vtx 1 5 0 0 2 1400 1600
+    vtx 2 5 0 0 5 1600 2100
+    vtx 3 1 0 0 4 900 900
+    vtx 4 0 0 0 0 900 900
+    vtx 5 0 0 0 0 900 900
+    vtx 6 0 0 0 0 900 900
+    vtx 7 0 0 0 0 900 900
+    vtx 8 0 0 0 0 900 900
+    vtx 9 0 0 0 0 900 900
+  #$ OPTION END
+#$ OPTION_GROUP END
+
 #$ OPTION BEGIN (CHECKED): OSD
   feature OSD
   set osd_warn_bitmask = 40959
