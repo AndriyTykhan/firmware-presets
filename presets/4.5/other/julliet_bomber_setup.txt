@@ -56,6 +56,18 @@ aux 1 1 4 1800 2100 0 0 # Angle
 #$ OPTION END
 
 feature SERVO_TILT
+#$ OPTION_GROUP BEGIN: Servos
+  #$ OPTION BEGIN (CHECKED): One servo
+  # Одна серва (скид)
+    servo 0 1000 2000 1500 100 11
+  #$ OPTION END
+
+  #$ OPTION BEGIN (UNCHECKED): Two servos
+  # Дві серви(камера та скид)
+    servo 0 1000 2000 1500 100 10
+    servo 1 1000 2000 1500 100 11
+  #$ OPTION END
+#$ OPTION_GROUP END
 
 set rc_smoothing = ON
 
