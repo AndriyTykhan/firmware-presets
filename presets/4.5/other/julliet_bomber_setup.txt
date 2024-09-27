@@ -8,7 +8,11 @@
 #$ AUTHOR: Andrii Tykhan
 #$ WARNING: Make sure you picked the correct option, according to the amount of VTX power levels!. Make sure your Betaflight 4.4.* build includes SERVO (skip this warning for Betaflight 4.3.*)!
 
-#$ OPTION_GROUP BEGIN: VTX Power
+# TODO Move groups to separate folders
+# Use include
+# #$ INCLUDE: presets/4.3/category/preset_x.txt
+
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) VTX Power
   set vtx_low_power_disarm = UNTIL_FIRST_ARM
   #$ OPTION BEGIN (CHECKED): VTX 4 levels               
     vtx 0 5 0 0 1 900 1200
@@ -85,7 +89,7 @@ aux 1 1 4 1800 2100 0 0 # Angle
 #$ OPTION END
 
 feature SERVO_TILT
-#$ OPTION_GROUP BEGIN: Servos
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Servos
   #$ OPTION BEGIN (CHECKED): One servo
   # Одна серва (скид)
     servo 0 1000 2000 1500 100 11
