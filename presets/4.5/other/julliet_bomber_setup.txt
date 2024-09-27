@@ -8,6 +8,28 @@
 #$ AUTHOR: Andrii Tykhan
 #$ WARNING: Make sure you picked the correct option, according to the amount of VTX power levels!. Make sure your Betaflight 4.4.* build includes SERVO (skip this warning for Betaflight 4.3.*)!
 
+#$ OPTION BEGIN (CHECKED): OSD
+  feature OSD
+  set osd_warn_bitmask = 40959
+  set osd_vbat_pos = 321
+  set osd_link_quality_pos = 2112
+  set osd_rssi_dbm_pos = 2080
+  set osd_tim_2_pos = 2520
+  set osd_flymode_pos = 2138
+  set osd_throttle_pos = 2426
+  set osd_vtx_channel_pos = 18784
+  set osd_crosshairs_pos = 2286
+  set osd_ah_pos = 2159
+  set osd_craft_name_pos = 2059
+  set osd_pilot_name_pos = 2091
+  set osd_altitude_pos = 18489
+  set osd_warnings_pos = 2410
+  set osd_avg_cell_voltage_pos = 2432
+  set osd_disarmed_pos = 363
+  set osd_stat_bitmask = 8419116
+  set pilot_name = Julliet
+#$ OPTION END
+
 #$ OPTION BEGIN (CHECKED): Failsafe
   rxfail 0 a
   rxfail 1 a
