@@ -6,8 +6,7 @@
 #$ STATUS: EXPERIMENTAL
 #$ KEYWORDS: VTX, switch, failsafe, servo, OSD
 #$ AUTHOR: Andrii Tykhan
-#$ WARNING: Make sure you picked the correct option, according to the amount of VTX power levels!
-#$ WARNING: Make sure your Betaflight 4.4.* build includes SERVO (skip this warning for Betaflight 4.3.*)!
+#$ WARNING: Make sure you picked the correct option, according to the amount of VTX power levels!. Make sure your Betaflight 4.4.* build includes SERVO (skip this warning for Betaflight 4.3.*)!
 
 
 #$ OPTION_GROUP BEGIN: VTX Power
