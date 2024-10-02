@@ -114,6 +114,20 @@ feature SERVO_TILT
   #$ OPTION END
 #$ OPTION_GROUP END
 
+#$ OPTION BEGIN (UNCHECKED): GPS
+  feature GPS
+
+  serial 5 2 115200 57600 0 115200
+
+  set gps_sbas_mode = AUTO
+  set gps_ublox_use_galileo = ON
+  set gps_set_home_point_once = ON
+
+
+  set osd_gps_sats_pos = 2176
+  set osd_gps_sats_show_hdop = on
+#$ OPTION END
+
 set rc_smoothing = ON
 
 mixer QUADX
