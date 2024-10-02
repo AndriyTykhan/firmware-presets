@@ -14,7 +14,7 @@
 
 #$ OPTION_GROUP BEGIN: (EXCLUSIVE) VTX Power
   set vtx_low_power_disarm = UNTIL_FIRST_ARM
-  #$ OPTION BEGIN (CHECKED): VTX 4 levels               
+  #$ OPTION BEGIN (UNCHECKED): VTX 4 levels               
     vtx 0 5 0 0 1 900 1200
     vtx 1 5 0 0 2 1400 1600
     vtx 2 5 0 0 4 1600 2100
@@ -38,6 +38,18 @@
     vtx 7 0 0 0 0 900 900
     vtx 8 0 0 0 0 900 900
     vtx 9 0 0 0 0 900 900
+  #$ OPTION END
+#$ OPTION_GROUP END
+
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) VTX Band
+  #$ OPTION BEGIN (UNCHECKED): R band
+    set vtx_band = 5 # Raceband
+    set vtx_channel = 6
+  #$ OPTION END
+
+  #$ OPTION BEGIN (UNCHECKED): X band
+    set vtx_band = 1 # If there is only x band
+    set vtx_channel = 5
   #$ OPTION END
 #$ OPTION_GROUP END
 
@@ -90,7 +102,7 @@ aux 1 1 4 1800 2100 0 0 # Angle
 
 feature SERVO_TILT
 #$ OPTION_GROUP BEGIN: (EXCLUSIVE) Servos
-  #$ OPTION BEGIN (CHECKED): One servo
+  #$ OPTION BEGIN (UNCHECKED): One servo
   # Одна серва (скид)
     servo 0 1000 2000 1500 100 11
   #$ OPTION END
