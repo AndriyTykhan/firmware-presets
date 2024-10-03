@@ -73,6 +73,8 @@
   set osd_disarmed_pos = 363
   set osd_stat_bitmask = 8419116
   set pilot_name = Julliet
+
+  set vcd_video_system = AUTO
 #$ OPTION END
 
 #$ OPTION BEGIN (CHECKED): Failsafe
