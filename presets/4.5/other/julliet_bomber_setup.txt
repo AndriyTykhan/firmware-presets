@@ -1,4 +1,4 @@
-#$ TITLE: Julliet Complete bomber setup
+#$ TITLE: Julliet Complete setup
 #$ FIRMWARE_VERSION: 4.3
 #$ FIRMWARE_VERSION: 4.4
 #$ FIRMWARE_VERSION: 4.5
@@ -50,6 +50,32 @@
   #$ OPTION BEGIN (UNCHECKED): X band
     set vtx_band = 1 # If there is only x band
     set vtx_channel = 5
+
+    # vtxtable bands 1
+    # vtxtable channels 8
+    # vtxtable band 1 XBAND    A FACTORY 4990 5020 5050 5080 5110 5140 5170 5200
+    # vtxtable powerlevels 4
+    # vtxtable powervalues 25 400 1000 2500
+    # vtxtable powerlabels 25 400 1W 2.5
+
+
+    # VTX channel change. Add later
+    # vtx 4 2 6 2 0 900 1100 # R1
+    # vtx 5 2 6 2 0 1100 1300 # R1
+    # vtx 6 2 5 2 0 1300 1500 # R2
+    # vtx 7 2 5 2 0 1500 1700 # R7
+    # vtx 8 2 6 6 0 1700 1900 # R8
+    # vtx 9 2 6 6 0 1900 2100 # E8
+
+    # vtx 3 2 5 2 0 900 1100
+    # vtx 4 2 5 6 0 1150 1350
+    # vtx 5 2 5 6 0 1650 1850
+    # vtx 6 2 5 8 0 1900 2100 
+    # vtx 3 2 5 2 0 900 1300
+    # vtx 4 2 5 6 0 1300 1650
+    # vtx 5 2 5 8 0 1700 2100
+    # vtx 6 2 5 8 0 1900 2100
+
   #$ OPTION END
 #$ OPTION_GROUP END
 
@@ -77,26 +103,44 @@
   set vcd_video_system = AUTO
 #$ OPTION END
 
-#$ OPTION BEGIN (CHECKED): Failsafe
-  rxfail 0 a
-  rxfail 1 a
-  rxfail 2 a
-  rxfail 3 s 1600 # Throttle
-  rxfail 8 s 2000 # Angle
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Failsafe
+  #$ OPTION BEGIN (CHECKED): Bomber Failsafe
+    rxfail 0 a
+    rxfail 1 a
+    rxfail 2 a
+    rxfail 3 s 1600 # Throttle
+    rxfail 8 s 2000 # Angle
+    
+    
+    set failsafe_throttle = 1750
+    set failsafe_procedure = AUTO-LAND
+    set failsafe_delay = 200
+    set failsafe_off_delay = 200
+    set failsafe_throttle_low_delay = 200
+    set failsafe_switch_mode = STAGE1
+    
+    beacon RX_LOST
+  #$ OPTION END
   
-  
-  set failsafe_throttle = 1750
-  set failsafe_procedure = AUTO-LAND
-  set failsafe_delay = 200
-  set failsafe_off_delay = 200
-  set failsafe_throttle_low_delay = 200
-  set failsafe_switch_mode = STAGE1
-  
-  beacon RX_LOST
-#$ OPTION END
+  #$ OPTION BEGIN (CHECKED): Kamik Failsafe
+    rxfail 0 a
+    rxfail 1 a
+    rxfail 2 a
+    rxfail 3 h
+
+    set failsafe_delay = 200
+    set failsafe_off_delay = 200
+    set failsafe_throttle = 1600
+    set failsafe_switch_mode = STAGE1
+    set failsafe_throttle_low_delay = 100
+    set failsafe_procedure = AUTO-LAND
+    set failsafe_recovery_delay = 10
+    set failsafe_stick_threshold = 30
+  #$ OPTION END
+#$ OPTION_GROUP END
 
 aux 0 0 0 1800 2100 0 0 # Arm
-aux 1 1 4 1800 2100 0 0 # Angle
+aux 1 1 1 1800 2100 0 0 # Angle
 
 #$ OPTION BEGIN (UNCHECKED): Hide OSD feature(Separate firmware required)
   adjrange 0 0 2 900 2100 29 2 0 0
@@ -131,6 +175,9 @@ feature SERVO_TILT
 #$ OPTION END
 
 set rc_smoothing = ON
+
+# set rssi_channel = 0 # RSSI Channel disabled       
+
 
 mixer QUADX
 map AETR1234
