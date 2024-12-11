@@ -148,6 +148,7 @@
       "failsafe",
       "OSD",
       "servo",
+      "SERVOS",
       "switch",
       "VTX"
     ]
@@ -155,8 +156,8 @@
   "presets": [
     {
       "fullPath": "presets/4.5/other/julliet_bomber_setup.txt",
-      "hash": "9d6bf700ffd7c44f1366682acb3fb9056dd4d01d13b26270571a4df0aed1af81",
-      "title": "Julliet Complete bomber setup",
+      "hash": "788373b857fead376531b28fcbe5d24120aa7ffa807a1c7ab024d3e5814380e7",
+      "title": "Julliet Complete setup",
       "firmware_version": [
         "4.3",
         "4.4",
@@ -169,6 +170,26 @@
         "switch",
         "failsafe",
         "servo",
+        "OSD"
+      ],
+      "author": "Andrii Tykhan",
+      "priority": 0
+    },
+    {
+      "fullPath": "presets/4.5/other/mamont.txt",
+      "hash": "540a70440b81833e4ffb0a8ecab19470136191c2f0486c7082364419fc71d5f2",
+      "title": "Mamont setup",
+      "firmware_version": [
+        "4.3",
+        "4.4",
+        "4.5"
+      ],
+      "category": "OTHER",
+      "status": "EXPERIMENTAL",
+      "keywords": [
+        "VTX",
+        "SERVOS",
+        "FAILSAFE",
         "OSD"
       ],
       "author": "Andrii Tykhan",
