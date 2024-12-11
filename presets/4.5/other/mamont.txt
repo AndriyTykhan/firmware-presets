@@ -1,0 +1,113 @@
+#$ TITLE: Mamont setup
+#$ FIRMWARE_VERSION: 4.3
+#$ FIRMWARE_VERSION: 4.4
+#$ FIRMWARE_VERSION: 4.5
+#$ CATEGORY: OTHER
+#$ STATUS: EXPERIMENTAL
+#$ KEYWORDS: VTX, SERVOS, FAILSAFE, OSD
+#$ AUTHOR: Andrii Tykhan
+#$ WARNING: Make sure you solder pins correctly.
+
+# Digital VTX
+    # OSD
+# Servos
+  # SERIAL_TX 3 --> PWM 1
+  # SERIAL_TX 3 --> PWM 3
+  # SERIAL_RX 6 & VIDEO --> VTX
+  # LED --> Drop System
+
+# feature
+feature SERVO_TILT
+feature LED_STRIP
+feature OSD
+
+# beacon
+beacon RX_LOST
+beacon RX_SET
+
+# aux
+aux 0 0 0 1700 2100 0 0 # Arm
+aux 1 1 1 1700 2100 0 0 # Angle
+
+#$ OPTION BEGIN (CHECKED): Digital
+  set osd_rssi_pos = 90
+  set osd_link_quality_pos = 2113
+  set osd_link_tx_power_pos = 24
+  set osd_rssi_dbm_pos = 2145
+  set osd_tim_2_pos = 2488
+  set osd_flymode_pos = 2557
+  set osd_throttle_pos = 2456
+  set osd_current_pos = 2557
+  set osd_mah_drawn_pos = 2497
+  set osd_craft_name_pos = 2059
+  set osd_altitude_pos = 18465
+  set osd_power_pos = 388
+  set osd_warnings_pos = 14699
+  set osd_avg_cell_voltage_pos = 2465
+  set osd_disarmed_pos = 288
+   
+  set osd_displayport_device = MSP
+  set vcd_video_system = HD
+  serial 5 131073 115200 57600 0 115200
+#$ OPTION END
+
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Servos
+  #$ OPTION BEGIN (UNCHECKED): One servo
+  # Одна серва (скид)
+    servo 0 1000 2000 1500 100 11
+  #$ OPTION END
+
+  #$ OPTION BEGIN (UNCHECKED): 3 servos(Gibmal)
+    feature CHANNEL_FORWARDING
+    channel_forwarding_start 7
+
+    resource SERIAL_TX 3 none
+    resource SERIAL_RX 3 none
+
+    resource SERVO 1 B10
+    resource SERVO 2 B11
+    timer B10 AF1
+    timer B11 AF1
+
+    resource SERVO 3 A00
+
+    servo 0 1000 2000 1500 100 9
+    servo 1 1000 2000 1500 100 8
+  #$ OPTION END
+#$ OPTION_GROUP END
+
+#$ OPTION_GROUP BEGIN: (EXCLUSIVE) Failsafe
+  #$ OPTION BEGIN (CHECKED): In field failsafe
+    rxfail 0 a
+    rxfail 1 a
+    rxfail 2 a
+    rxfail 3 s 1600 # Throttle
+    rxfail 8 s 2000 # Angle
+    
+    
+    set failsafe_throttle = 1750
+    set failsafe_procedure = AUTO-LAND
+    set failsafe_delay = 200
+    set failsafe_off_delay = 200
+    set failsafe_throttle_low_delay = 200
+    set failsafe_switch_mode = STAGE1
+  #$ OPTION END
+  
+  #$ OPTION BEGIN (UNCHECKED): Failsafe for testing
+    rxfail 0 a
+    rxfail 1 a
+    rxfail 2 a
+    rxfail 3 h
+    rxfail 4 h
+    rxfail 5 s 1450
+
+    set failsafe_delay = 30
+    set failsafe_off_delay = 200
+    set failsafe_throttle = 1240
+    set failsafe_switch_mode = STAGE1
+    set failsafe_throttle_low_delay = 300
+    set failsafe_procedure = AUTO-LAND
+    set failsafe_recovery_delay = 17
+    set failsafe_stick_threshold = 30
+  #$ OPTION END
+#$ OPTION_GROUP END
