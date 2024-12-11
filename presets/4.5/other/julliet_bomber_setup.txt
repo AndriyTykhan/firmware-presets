@@ -122,7 +122,7 @@
     beacon RX_LOST
   #$ OPTION END
   
-  #$ OPTION BEGIN (CHECKED): Kamik Failsafe
+  #$ OPTION BEGIN (UNCHECKED): Kamik Failsafe
     rxfail 0 a
     rxfail 1 a
     rxfail 2 a
