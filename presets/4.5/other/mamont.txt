@@ -59,7 +59,7 @@ aux 1 1 1 1700 2100 0 0 # Angle
 
   #$ OPTION BEGIN (UNCHECKED): 3 servos(Gibmal)
     feature CHANNEL_FORWARDING
-    channel_forwarding_start = 7
+    channel_forwarding_start 7
 
     resource SERIAL_TX 3 none
     resource SERIAL_RX 3 none

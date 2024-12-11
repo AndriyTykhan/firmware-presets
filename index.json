@@ -156,7 +156,7 @@
   "presets": [
     {
       "fullPath": "presets/4.5/other/julliet_bomber_setup.txt",
-      "hash": "788373b857fead376531b28fcbe5d24120aa7ffa807a1c7ab024d3e5814380e7",
+      "hash": "085c8b69414b00440f6b54d2cc83c20c5ed127c98517a51114ea3c6753ebd2af",
       "title": "Julliet Complete setup",
       "firmware_version": [
         "4.3",
@@ -177,7 +177,7 @@
     },
     {
       "fullPath": "presets/4.5/other/mamont.txt",
-      "hash": "540a70440b81833e4ffb0a8ecab19470136191c2f0486c7082364419fc71d5f2",
+      "hash": "ba88b3147835884960bda7e4b0bb9c049e285b22666bb8f5657a2a73738e2d96",
       "title": "Mamont setup",
       "firmware_version": [
         "4.3",
